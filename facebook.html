@@ -710,10 +710,19 @@
                                                             </div>
                                                         </td>
                                                         <td className="px-6 py-4 whitespace-nowrap text-center align-middle">
-                                                            <span className={`inline-flex items-center justify-center px-3 py-1 rounded-full text-xs font-bold ${mediaCount > 0 ? 'bg-purple-100 text-purple-800' : 'bg-gray-100 text-gray-500'}`}>
-                                                                <i data-lucide="layers" className="w-3 h-3 mr-1"></i>
+                                                            <button 
+                                                                onClick={() => mediaCount > 0 && setSelectedPost(post)}
+                                                                disabled={mediaCount === 0}
+                                                                className={`inline-flex items-center justify-center px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 border ${
+                                                                    mediaCount > 0 
+                                                                    ? 'bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200 hover:border-purple-300 hover:scale-110 cursor-pointer shadow-sm hover:shadow-md' 
+                                                                    : 'bg-gray-100 text-gray-400 border-gray-200 cursor-default opacity-60'
+                                                                }`}
+                                                                title={mediaCount > 0 ? "คลิกเพื่อดูสื่อทั้งหมด" : "ไม่มีสื่อ"}
+                                                            >
+                                                                <i data-lucide="layers" className="w-3.5 h-3.5 mr-1.5"></i>
                                                                 {mediaCount}
-                                                            </span>
+                                                            </button>
                                                         </td>
                                                         <td className="px-6 py-4 whitespace-nowrap text-center align-middle">
                                                             <div className="text-sm font-semibold text-gray-700">{post.likes?.toLocaleString() || 0}</div>
